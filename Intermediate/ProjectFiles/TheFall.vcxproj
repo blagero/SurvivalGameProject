@@ -252,7 +252,10 @@
     <None Include="..\..\TheFall.uproject"/>
     <None Include="..\..\Source\TheFall.Target.cs"/>
     <None Include="..\..\Source\TheFallEditor.Target.cs"/>
+    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.gitignore"/>
     <None Include="..\..\.vsconfig"/>
+    <None Include="..\..\README.md"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
@@ -263,10 +266,6 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\TheFall\TheFall.h"/>
-    <ClCompile Include="..\..\Source\TheFall\TheFallCharacter.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TheFall\TheFallCharacter.h"/>
     <ClCompile Include="..\..\Source\TheFall\TheFallGameMode.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -281,8 +280,12 @@
     <ClCompile Include="..\..\Source\TheFall\Private\BaseClass\TFPlayerCharacter.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TheFall\Private\Components\StatlineComponent.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClInclude Include="..\..\Source\TheFall\Public\BaseClass\TFCharacter.h"/>
     <ClInclude Include="..\..\Source\TheFall\Public\BaseClass\TFPlayerCharacter.h"/>
+    <ClInclude Include="..\..\Source\TheFall\Public\Components\StatlineComponent.h"/>
     <ClCompile Include="..\..\Source\TheFall\Variant_Combat\AnimNotify_CheckChargedAttack.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

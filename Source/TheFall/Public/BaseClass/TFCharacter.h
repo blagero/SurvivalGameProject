@@ -10,6 +10,8 @@ UCLASS()
 class THEFALL_API ATFCharacter : public ACharacter
 {
 	GENERATED_BODY()
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UStatlineComponent* Statline;
 
 public:
 	// Sets default values for this character's properties

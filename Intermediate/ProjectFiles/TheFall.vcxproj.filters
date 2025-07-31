@@ -11,7 +11,10 @@
     <None Include="..\..\Source\TheFallEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\README.md" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -42,12 +45,6 @@
     <ClInclude Include="..\..\Source\TheFall\TheFall.h">
       <Filter>Source\TheFall</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\TheFall\TheFallCharacter.cpp">
-      <Filter>Source\TheFall</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TheFall\TheFallCharacter.h">
-      <Filter>Source\TheFall</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\TheFall\TheFallGameMode.cpp">
       <Filter>Source\TheFall</Filter>
     </ClCompile>
@@ -72,6 +69,12 @@
     <ClCompile Include="..\..\Source\TheFall\Private\BaseClass\TFPlayerCharacter.cpp">
       <Filter>Source\TheFall\Private\BaseClass</Filter>
     </ClCompile>
+    <Filter Include="Source\TheFall\Private\Components">
+      <UniqueIdentifier>{BBB43F74-3A1C-320A-9F4B-2BFD4CB1C688}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TheFall\Private\Components\StatlineComponent.cpp">
+      <Filter>Source\TheFall\Private\Components</Filter>
+    </ClCompile>
     <Filter Include="Source\TheFall\Public">
       <UniqueIdentifier>{0658A34F-B0F2-3760-ABD1-33225F8A48AB}</UniqueIdentifier>
     </Filter>
@@ -83,6 +86,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\TheFall\Public\BaseClass\TFPlayerCharacter.h">
       <Filter>Source\TheFall\Public\BaseClass</Filter>
+    </ClInclude>
+    <Filter Include="Source\TheFall\Public\Components">
+      <UniqueIdentifier>{EB02EE95-B44F-3364-9633-75F8312E2C12}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\TheFall\Public\Components\StatlineComponent.h">
+      <Filter>Source\TheFall\Public\Components</Filter>
     </ClInclude>
     <Filter Include="Source\TheFall\Variant_Combat">
       <UniqueIdentifier>{AB644477-E58B-35C0-BED7-5DBF0957A3CC}</UniqueIdentifier>
