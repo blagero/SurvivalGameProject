@@ -2,7 +2,7 @@
 
 
 #include "Components/StatlineComponent.h"
-
+#include "GameFramework/CharacterMovementComponent.h"
 // Sets default values for this component's properties
 UStatlineComponent::UStatlineComponent()
 {
@@ -17,15 +17,33 @@ UStatlineComponent::UStatlineComponent()
 void UStatlineComponent::TickStats(const float& DeltaTime)
 {
 	Health.TickStat(DeltaTime);
-	Stamina.TickStat(DeltaTime);
+	TickStamina(DeltaTime);
 	Hunger.TickStat(DeltaTime);
 	Thirst.TickStat(DeltaTime);
+}
+
+void UStatlineComponent::TickStamina(const float& DeltaTime)
+{
+	if (bIsSprinting && IsValidSprinting()) {
+		Stamina.TickStat(0 - (DeltaTime * SprintCostMultiplayer));
+		if (Stamina.GetCurrent() <= 0.0) {
+			SetSprinting(false);
+		}
+		return;
+	}
+	Stamina.TickStat(DeltaTime);
+}
+
+bool UStatlineComponent::IsValidSprinting()
+{
+	return OwningCharMovementComp->Velocity.Length() > WalkSpeed && !OwningCharMovementComp->IsFalling();
 }
 
 // Called when the game starts
 void UStatlineComponent::BeginPlay()
 {
 	Super::BeginPlay();
+	OwningCharMovementComp->MaxWalkSpeed = WalkSpeed;
 
 }
 
@@ -38,6 +56,11 @@ void UStatlineComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 		TickStats(DeltaTime);
 	}
 
+}
+
+void UStatlineComponent::SetMovementCompReference(UCharacterMovementComponent* Comp)
+{
+	OwningCharMovementComp = Comp;
 }
 
 float UStatlineComponent::GetStatPercentile(const ECoreStat Stat) const
@@ -56,5 +79,29 @@ float UStatlineComponent::GetStatPercentile(const ECoreStat Stat) const
 		break;
 	}
 	return -1;
+}
+
+bool UStatlineComponent::CanSprint() const
+{
+	return Stamina.GetCurrent() > 0.0;
+}
+
+void UStatlineComponent::SetSprinting(const bool& IsSprinting)
+{
+	bIsSprinting = IsSprinting;
+	OwningCharMovementComp->MaxWalkSpeed = bIsSprinting ? SprintSpeed : WalkSpeed;
+}
+
+bool UStatlineComponent::CanJump()
+{
+	return Stamina.GetCurrent() >= JumpCost;
+}
+
+void UStatlineComponent::HasJumped()
+{
+	if (!OwningCharMovementComp->IsFalling()) {
+		Stamina.Adjust(0 - JumpCost);
+
+	}
 }
 

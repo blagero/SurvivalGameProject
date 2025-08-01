@@ -16,6 +16,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class UCharacterMovementComponent;
 enum class ECoreStat : uint8;
 
 // ********** Begin ScriptStruct FCoreStat *********************************************************
@@ -28,13 +29,18 @@ struct FCoreStat;
 // ********** End ScriptStruct FCoreStat ***********************************************************
 
 // ********** Begin Class UStatlineComponent *******************************************************
-#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execGetStatPercentile);
+#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execHasJumped); \
+	DECLARE_FUNCTION(execCanJump); \
+	DECLARE_FUNCTION(execSetSprinting); \
+	DECLARE_FUNCTION(execCanSprint); \
+	DECLARE_FUNCTION(execGetStatPercentile); \
+	DECLARE_FUNCTION(execSetMovementCompReference);
 
 
 THEFALL_API UClass* Z_Construct_UClass_UStatlineComponent_NoRegister();
 
-#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_INCLASS_NO_PURE_DECLS \
+#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUStatlineComponent(); \
 	friend struct Z_Construct_UClass_UStatlineComponent_Statics; \
@@ -45,7 +51,7 @@ public: \
 	DECLARE_SERIALIZER(UStatlineComponent)
 
 
-#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_ENHANCED_CONSTRUCTORS \
+#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	UStatlineComponent(UStatlineComponent&&) = delete; \
 	UStatlineComponent(const UStatlineComponent&) = delete; \
@@ -55,13 +61,13 @@ public: \
 	NO_API virtual ~UStatlineComponent();
 
 
-#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_63_PROLOG
-#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_GENERATED_BODY \
+#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_67_PROLOG
+#define FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_INCLASS_NO_PURE_DECLS \
-	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_66_ENHANCED_CONSTRUCTORS \
+	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_INCLASS_NO_PURE_DECLS \
+	FID_Users_Admin_Documents_Unreal_Projects_TheFall_Source_TheFall_Public_Components_StatlineComponent_h_70_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

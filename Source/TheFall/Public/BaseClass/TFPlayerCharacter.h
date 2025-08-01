@@ -30,6 +30,7 @@ class THEFALL_API ATFPlayerCharacter : public ATFCharacter
 
 protected:
 
+#pragma region Input
 	/** Jump Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
 	UInputAction* JumpAction;
@@ -45,6 +46,11 @@ protected:
 	/** Mouse Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
 	UInputAction* MouseLookAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	UInputAction* SprintAction;
+#pragma endregion
+
 protected:
 
 	/** Initialize input action bindings */
@@ -53,6 +59,11 @@ protected:
 	void Move(const FInputActionValue& Value);
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	void PlayerJump();
+	
+	void SprintOn();
+	void SprintOff();
 public:
 	/** Constructor */
 	

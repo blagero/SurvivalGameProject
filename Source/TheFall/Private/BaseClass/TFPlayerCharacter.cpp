@@ -50,21 +50,38 @@ ATFPlayerCharacter::ATFPlayerCharacter()
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 }
 
+void ATFPlayerCharacter::PlayerJump()
+{
+	if (ATFCharacter::CanJump()) {
+		ATFCharacter::HasJumped();
+	}
+}
+
+void ATFPlayerCharacter::SprintOn()
+{
+	SetSprinting(true);
+}
+
+void ATFPlayerCharacter::SprintOff()
+{
+	SetSprinting(false);
+}
+
 void ATFPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent)) {
 
 		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ATFPlayerCharacter::PlayerJump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
-
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ATFPlayerCharacter::Move);
 		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &ATFPlayerCharacter::Look);
-
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ATFPlayerCharacter::Look);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this, &ATFPlayerCharacter::SprintOn);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &ATFPlayerCharacter::SprintOff);
 	}
 	
 }
@@ -86,6 +103,8 @@ void ATFPlayerCharacter::Look(const FInputActionValue& Value)
 	// route the input
 	DoLook(LookAxisVector.X, LookAxisVector.Y);
 }
+
+
 
 void ATFPlayerCharacter::DoMove(float Right, float Forward)
 {
